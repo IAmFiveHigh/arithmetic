@@ -8,10 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
-
-var arr1 = SortTextHelper.generateRandomArray(n: 10000, rangL: 0, rangR: 10000)
-
+//冒泡排序
 func bubbleSort(arr: [Int]) -> [Int] {
     
     let n = arr.count
@@ -29,7 +26,38 @@ func bubbleSort(arr: [Int]) -> [Int] {
     return array
 }
 
+//选择排序
+func selectSort(arr: [Int]) -> [Int] {
+    
+    let n = arr.count
+    var array = arr
+    for i in 0..<n {
+        
+        var minIndex = i
+        var j = i
+        while j < n {
+            
+            if array[j] < array[minIndex] {
+                minIndex = j
+            }
+            j += 1
+        }
+        
+        if i != minIndex {
+            swap(&array[i], &array[minIndex])
+        }
+    }
+    return array
+}
+
+
+
+var arr1 = SortTextHelper.generateRandomArray(n: 10000, rangL: 0, rangR: 10000)
 if let arr1 = arr1 {
     SortTextHelper.sortTimeTest(title: "冒泡排序", array: arr1, function: bubbleSort)
-    
+    SortTextHelper.sortTimeTest(title: "选择排序", array: arr1, function: selectSort)
 }
+
+
+
+
