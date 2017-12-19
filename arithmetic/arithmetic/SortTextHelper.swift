@@ -47,11 +47,16 @@ class SortTextHelper {
         
         let startTime = Date()
         
-        _ = function(array)
+        let resultArray = function(array)
         
         let durationTime = Date().timeIntervalSince(startTime)
         
-        print("\(title) : \(durationTime) S ")
+        if resultArray.isSort() {
+            print("\(title) : \(durationTime) S ")
+        }else {
+            print("\(title)排序失败,结果无序")
+        }
+        
     }
 }
 
